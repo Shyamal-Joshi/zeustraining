@@ -24,7 +24,7 @@ nav::before {
     left: 0px;
     bottom: 0px;
     height: 56px;
-    background-image: url("./Assets/header_pattern.svg");
+    background-image: url("../Assets/header_pattern.svg");
     mix-blend-mode: overlay;
     opacity: 1;
 }
@@ -44,25 +44,28 @@ nav::before {
     border-top: 4px solid #31B9E4;
     padding: 22px 30px;
     position: relative;
-}
 
-.header__div{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    .header__div{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+        &__icon{
+            height: 26px;
+        }
     
+        &__heading{
+            font-size: 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 }
 
-.header__div__icon{
-    height: 26px;
-}
 
-.header__div__heading{
-    font-size: 24px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
+
 
 .radio__button{
     margin-top: 32px;

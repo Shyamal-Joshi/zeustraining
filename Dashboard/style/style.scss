@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
 
+$primary-color : #3FD28B;
+$background-color : #EEEEEE;
+$color-white : #fff;
+$color-danger : #D80000;
+$color-notification : #2A7FF3;
+
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +16,7 @@ html{
     font-size: 62.5%;
 }
 body{
-    background-color: #EEEEEE;
+    background-color: $background-color;
     position: relative;
 }
 
@@ -25,20 +31,17 @@ body{
         justify-content:space-between;
         align-items: center;
         font-size: 1.4rem;
-        color: #3FD28B;
+        color: $primary-color;
         position: relative;
 
-        .navbar__menu__items{
+        &__items{
             margin-left: 3.2rem;
         }
         .active{
-            color: #fff;
-            border-bottom: .4rem solid #fff;
+            color: $color-white;
+            border-bottom: .4rem solid $color-white;
             padding: 1.75rem 0;
         }
-
-    
-       
     }
 
     .navbar__menu:last-child{
@@ -61,8 +64,8 @@ body{
 
     .notification{
         position: absolute;
-        color: white;
-        background-color: #2A7FF3;
+        color: $color-white;
+        background-color: $color-notification;
         width: 1.7rem;
         border-radius: 50%;
         text-align: center;
@@ -72,7 +75,7 @@ body{
 
     .account-notification{
         color: black;
-        background-color: white;
+        background-color: $color-white;
     }
 }
 
@@ -87,7 +90,7 @@ nav::before {
     left: 0rem;
     bottom: 0rem;
     height: 5.6rem;
-    background-image: url("./Assets/header_pattern.svg");
+    background-image: url("../Assets/header_pattern.svg");
     mix-blend-mode: overlay;
     opacity: 1;
 }
@@ -161,7 +164,7 @@ nav::before {
 .form__class > select{
     border: none;
     outline: none;
-    appearance: none;
+    /* appearance: none; */
     background-color: inherit;
     font-size: 1.6rem;
     margin-top: 5px;
@@ -193,7 +196,7 @@ hr{
     row-gap: 2.5rem;
     .cards{
         padding: 2.4rem;
-        background-color: #fff;
+        background-color: $color-white;
 
         .card__data{
             display: flex;
@@ -246,7 +249,7 @@ hr{
     position: relative;
     .expired__txt{
         position: absolute;
-        color: #D80000;
+        color: $color-danger;
         font-size: 1.2rem;
         background-color: #FFE4E6;
         padding: 0.7rem;
@@ -262,9 +265,6 @@ hr{
     color: #1F7A54;
     display: flex;
     justify-content: center;
-    /* margin-bottom: 1rem; */
-    /* position: absolute;
-    bottom: 5.6rem; */
 }
 
 
@@ -304,13 +304,13 @@ hr{
 
     .course__cards{
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4,1fr);
+        /* grid-template-rows: auto; */
     }
 }
 @media (max-width: 854px) {
     .header-div{
         .navbar__menu{
-            .navbar__menu__items{
+            &__items{
                 margin-left: 2.4rem;
             }
         }
