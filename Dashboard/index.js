@@ -1,5 +1,34 @@
 import cards from './data/data.js';
 
+//----------------------------------------------Hamburger Menu------------------------------------------
+
+const menu=document.querySelector('.dropdown__container');
+
+const toggle = () =>{
+    if(menu.style.display==='inline') {
+        menu.style.display='none';
+    }
+    else{
+        menu.style.display='inline';
+    }
+}
+
+const hamburger=document.querySelector('#hamburger__icon');
+
+hamburger.addEventListener("click", toggle);
+
+const updateMediaQuery = () => {
+    if(window.innerWidth > 768){
+        menu.style.display='none';
+    }
+}
+
+window.addEventListener('resize', updateMediaQuery);
+
+
+
+
+//-------------------------------------------------Card section-----------------------------------------
 
 const card_html = document.querySelector(".course__cards");
 
