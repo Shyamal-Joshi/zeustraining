@@ -1,21 +1,25 @@
-import cards from './data/data.js';
+import cards from './data/cardData.js';
+import announcement from './data/announcementData.js'
 
 //----------------------------------------------Hamburger Menu------------------------------------------
 
 const menu=document.querySelector('.dropdown__container');
+const hamburger=document.querySelector('#hamburger__icon');
 
-const toggle = () =>{
+const toggleHamburger = () =>{
     if(menu.style.display==='inline') {
         menu.style.display='none';
+        hamburger.style.filter='brightness(100%)'
     }
     else{
         menu.style.display='inline';
+        hamburger.style.filter='brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7455%) hue-rotate(46deg) brightness(99%) contrast(111%)'
     }
 }
 
-const hamburger=document.querySelector('#hamburger__icon');
 
-hamburger.addEventListener("click", toggle);
+
+hamburger.addEventListener("click", toggleHamburger);
 
 const updateMediaQuery = () => {
     if(window.innerWidth > 768){
@@ -26,7 +30,29 @@ const updateMediaQuery = () => {
 window.addEventListener('resize', updateMediaQuery);
 
 
+//-------------------------------------------------submenu----------------------------------------------
 
+const content = document.querySelector('#content');
+const users = document.querySelector('#users');
+const reports = document.querySelector('#reports');
+const admin = document.querySelector('#admin');
+
+const toggleSubmenu = (divEle) => {
+    divEle.classList.toggle("active");
+}
+
+content.addEventListener('click', ()=>{
+    toggleSubmenu(content)
+});
+users.addEventListener('click', ()=>{
+    toggleSubmenu(users)
+});
+reports.addEventListener('click', ()=>{
+    toggleSubmenu(reports)
+});
+admin.addEventListener('click', ()=>{
+    toggleSubmenu(admin)
+});
 
 //-------------------------------------------------Card section-----------------------------------------
 
@@ -106,3 +132,63 @@ for (let i = 0; i < 4; i++) {
 
     card_html.appendChild(card);
 }
+
+
+//---------------------------------------------------announcement--------------------------------------
+
+const announcement_container=document.querySelector('.announcement__menu');
+
+for(let i=0;i<announcement.length;i++){
+
+    const announcement_card = document.createElement("div");
+    announcement_card.className = `announcement__card`;
+
+    const courseEle = announcement[i].course_name==="" ? "" : `<div class="course">Course: ${announcement[i].course_name}</div>`;
+    const attachmentEle = announcement[i].filesAttached ? `<div class="attchments">
+                    <i class="fa-solid fa-paperclip upin"></i>
+                    ${announcement[i].filesAttached} files are attached
+                </div>` : `<div></div>`;
+
+    const seenEle = announcement[i].checked ? `<img src="./Assets/icons/correct.png" alt="">` : `<img src="./Assets/icons/dnd.png" alt="">`;
+
+    if(!announcement[i].checked){
+        announcement_card.style.backgroundColor='#FFFFEE'
+    }
+    announcement_card.innerHTML=`
+    <div class="sender">
+        <div>
+            <span>PA:</span> <p>${announcement[i].personalAssistant}</p>
+        </div>
+        ${seenEle}
+    </div>
+    <div class="message">
+        ${announcement[i].message}
+    </div>
+    ${courseEle}
+    <div class="attachments__date">
+        ${attachmentEle}
+        ${announcement[i].dateTime}
+    </div>
+    `;
+
+    const linebreak = document.createElement("hr")
+    announcement_container.appendChild(announcement_card)
+    announcement_container.appendChild(linebreak)
+}
+
+const announcement_icon=document.querySelector('.announcement__icon');
+
+const toggleAnnouncement = () =>{
+    if(announcement_container.style.display==='inline') {
+        announcement_container.style.display='none';
+        announcement_icon.style.filter='brightness(100%)'
+    }
+    else{
+        announcement_container.style.display='inline';
+        announcement_icon.style.filter='brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7455%) hue-rotate(46deg) brightness(99%) contrast(111%)'
+    }
+}
+
+announcement_icon.addEventListener('click',()=>{
+    toggleAnnouncement();
+})

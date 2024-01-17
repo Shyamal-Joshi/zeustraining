@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Dashboard</title>
     <link rel="stylesheet" href="./style/style.css">
+    <script src="https://kit.fontawesome.com/854a9ccbaa.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="header-div">
         <img id="logo-header" src="./Assets/icons/header_logo.svg" alt="">
         <div class="navbar__menu">
-            <div class="navbar__menu__items big-screen active">DASHBOARD</div>
+            <div class="navbar__menu__items big-screen activeDashboard">DASHBOARD</div>
             <!-- <div id="active__border__bottom"></div> -->
             <div class="navbar__menu__items big-screen">CONTENT</div>
             <div class="navbar__menu__items big-screen">USERS</div>
@@ -20,25 +21,53 @@
                 <img class="icons" src="assets/quantum screen assets/icons/alerts.svg" alt="alerts"/>
                 <div class="notification">2</div>
             </div>
-            <div class="position navbar__menu__items">
-                <img class="icons" src="assets/quantum screen assets/icons/announcements.svg" alt="notifications"/>
+            <div class="position announcement navbar__menu__items">
+                <img class="icons announcement__icon" src="assets/quantum screen assets/icons/announcements.svg" alt="notifications"/>
                 <div class="notification">1</div>
+                <div class="announcement__menu">
+
+                    <hr>
+                </div>
             </div>
-            <div class="position navbar__menu__items">
+            <div class="position navbar__menu__items last__div">
                 <img class="icons account" src="assets/Shyamal.png" alt="accounts"/>
                 <div class="notification account-notification">T</div>
             </div>
-            <div class="navbar__menu__items small-screen">
-                <img id="hamburger__icon" onclick="toggle()" src="./Assets/icons/hamburger-menu.svg" alt="">
+            <div class="navbar__menu__items small-screen last__div">
+                <img id="hamburger__icon" src="./Assets/icons/hamburger-menu.svg" alt="">
             </div>
         </div>
 
         <div class="dropdown__container">
             <div class="navbar--menu--items__mobile">DASHBOARD</div>
-            <div class="navbar--menu--items__mobile ">CONTENT</div>
-            <div class="navbar--menu--items__mobile ">USERS</div>
-            <div class="navbar--menu--items__mobile ">REPORTS</div>
-            <div class="navbar--menu--items__mobile ">ADMIN</div>
+            <div id="content" class="navbar--menu--items__mobile">
+                <div class="submenu">
+                    <p>CONTENT</p>
+                    <i class="fa-solid fa-caret-down rotate__icon"></i>
+                </div>
+                <div class="submenu__dropdown">COURSE CATALOG</div>
+            </div>
+            <div id="users" class="navbar--menu--items__mobile">
+                <div class="submenu">
+                    <p>USERS</p>
+                    <i class="fa-solid fa-caret-down rotate__icon"></i>
+                </div>
+                <div class="submenu__dropdown">COURSE CATALOG</div>
+            </div>
+            <div id="reports" class="navbar--menu--items__mobile">
+                <div class="submenu">
+                    <p>REPORTS</p>
+                    <i class="fa-solid fa-caret-down rotate__icon"></i>
+                </div>
+                <div class="submenu__dropdown">COURSE CATALOG</div>
+            </div>
+            <div id="admin" class="navbar--menu--items__mobile">
+                <div class="submenu">
+                    <p>ADMIN</p>
+                    <i class="fa-solid fa-caret-down rotate__icon"></i>
+                </div>
+                <div class="submenu__dropdown">COURSE CATALOG</div>
+            </div>
         </div>
     </nav>
     <div class="hero__container">
