@@ -1,10 +1,22 @@
 import cards from './data/cardData.js';
 import announcement from './data/announcementData.js'
+import alert from './data/alertData.js'
 
-//----------------------------------------------Hamburger Menu------------------------------------------
+
 
 const menu=document.querySelector('.dropdown__container');
 const hamburger=document.querySelector('#hamburger__icon');
+
+const announcement_container=document.querySelector('.announcement__menu');
+const announcement_icon=document.querySelector('.announcement__icon');
+
+const alert_container=document.querySelector('.alert__menu');
+const alert_icon=document.querySelector('.alert__icon');
+
+
+//----------------------------------------------Hamburger Menu------------------------------------------
+
+
 
 const toggleHamburger = () =>{
     if(menu.style.display==='inline') {
@@ -12,6 +24,12 @@ const toggleHamburger = () =>{
         hamburger.style.filter='brightness(100%)'
     }
     else{
+        alert_container.style.display='none';
+        alert_icon.style.filter='brightness(100%)'
+
+        announcement_container.style.display='none';
+        announcement_icon.style.filter='brightness(100%)'
+
         menu.style.display='inline';
         hamburger.style.filter='brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7455%) hue-rotate(46deg) brightness(99%) contrast(111%)'
     }
@@ -136,7 +154,7 @@ for (let i = 0; i < 4; i++) {
 
 //---------------------------------------------------announcement--------------------------------------
 
-const announcement_container=document.querySelector('.announcement__menu');
+
 
 for(let i=0;i<announcement.length;i++){
 
@@ -176,7 +194,6 @@ for(let i=0;i<announcement.length;i++){
     announcement_container.appendChild(linebreak)
 }
 
-const announcement_icon=document.querySelector('.announcement__icon');
 
 const toggleAnnouncement = () =>{
     if(announcement_container.style.display==='inline') {
@@ -184,6 +201,14 @@ const toggleAnnouncement = () =>{
         announcement_icon.style.filter='brightness(100%)'
     }
     else{
+        menu.style.display='none';
+        hamburger.style.filter='brightness(100%)'
+
+        alert_container.style.display='none';
+        alert_icon.style.filter='brightness(100%)'
+
+
+
         announcement_container.style.display='inline';
         announcement_icon.style.filter='brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7455%) hue-rotate(46deg) brightness(99%) contrast(111%)'
     }
@@ -191,4 +216,80 @@ const toggleAnnouncement = () =>{
 
 announcement_icon.addEventListener('click',()=>{
     toggleAnnouncement();
+})
+
+
+//------------------------------------------------------alert--------------------------------------------------
+
+
+for(let i=0;i<alert.length;i++){
+
+    const alert_card = document.createElement("div");
+    alert_card.className = `alert__card`;
+
+    const courseEle = alert[i].course_name==="" ? "" : `<div class="alert__course">Course: ${alert[i].course_name}</div>`;
+
+    const seenEle = alert[i].checked ? `<img src="./Assets/icons/correct.png" alt="">` : `<img src="./Assets/icons/dnd.png" alt="">`;
+
+    if(!alert[i].checked){
+        alert_card.style.backgroundColor='#FFFFEE'
+    }
+
+    alert_card.innerHTML=`
+        <div class="alert__message">
+            ${alert[i].message}
+            ${seenEle}
+        </div>
+        ${courseEle}
+        <div class="alert__date">
+            ${alert[i].dateTime}
+        </div>
+    `;
+
+    const linebreak = document.createElement("hr")
+    alert_container.appendChild(alert_card)
+    alert_container.appendChild(linebreak)
+}
+
+
+
+const toggleAlert = () =>{
+    if(alert_container.style.display==='inline') {
+        alert_container.style.display='none';
+        alert_icon.style.filter='brightness(100%)'
+    }
+    else{
+        
+        announcement_container.style.display='none';
+        announcement_icon.style.filter='brightness(100%)'
+
+        menu.style.display='none';
+        hamburger.style.filter='brightness(100%)'
+
+        alert_container.style.display='inline';
+        alert_icon.style.filter='brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7455%) hue-rotate(46deg) brightness(99%) contrast(111%)'
+    }
+}
+
+alert_icon.addEventListener('click',()=>{
+    toggleAlert();
+})
+
+
+//---------------------
+
+
+document.addEventListener('click',(event)=>{
+    if(!event.target.matches('.alert__icon')){
+        alert_container.style.display='none';
+        alert_icon.style.filter='brightness(100%)'
+    }
+    if(!event.target.matches('#announcement__icon__id')){
+        announcement_container.style.display='none';
+        announcement_icon.style.filter='brightness(100%)'
+    }
+    if(!event.target.matches('#hamburger__icon')){
+        menu.style.display='none';
+        hamburger.style.filter='brightness(100%)'
+    }
 })

@@ -48,6 +48,7 @@ body {
   width: 31.5rem;
   height: 58.2rem;
   background-color: #fff;
+  overflow-y: scroll;
   color: #000;
   top: 4rem;
   left: 0;
@@ -87,6 +88,51 @@ body {
   display: inline;
 }
 .header-div .navbar__menu .announcement span {
+  color: #6E6E6E;
+}
+.header-div .navbar__menu .alert {
+  position: relative;
+}
+.header-div .navbar__menu .alert__menu {
+  display: none;
+  position: absolute;
+  width: 31.5rem;
+  height: 58.2rem;
+  overflow-y: scroll;
+  background-color: #fff;
+  color: #000;
+  top: 4rem;
+  left: 0;
+  z-index: 1000;
+  transform: translateX(-80%);
+}
+.header-div .navbar__menu .alert__menu .alert__card {
+  padding: 1.6rem;
+}
+.header-div .navbar__menu .alert__menu .alert__card .alert__message {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+.header-div .navbar__menu .alert__menu .alert__card .alert__message img {
+  width: 1.5rem;
+}
+.header-div .navbar__menu .alert__menu .alert__card .alert__date {
+  text-align: right;
+  font-size: 1.2rem;
+  color: #6E6E6E;
+}
+.header-div .navbar__menu .alert__menu .alert__card .alert__course {
+  font-size: 1.2rem;
+  color: #6E6E6E;
+  margin-bottom: 0.8rem;
+}
+.header-div .navbar__menu .alert p {
+  display: inline;
+}
+.header-div .navbar__menu .alert span {
   color: #6E6E6E;
 }
 .header-div .navbar__menu:last-child {

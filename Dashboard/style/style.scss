@@ -52,9 +52,6 @@ body{
 
         .announcement{
             // position: relative;
-
-            
-            
             &__menu{
                 display: none;
                 position: absolute;
@@ -62,6 +59,7 @@ body{
                 height: 58.2rem;
                 // padding:1.6rem;
                 background-color: #fff;
+                overflow-y: scroll;
                 color: #000;
                 top: 4rem;
                 left: 0;
@@ -110,7 +108,62 @@ body{
                 color: #6E6E6E;
             }
         }
+
+        .alert{
+            position: relative;
+            &__menu{
+                display: none;
+                position: absolute;
+                width: 31.5rem;
+                height: 58.2rem;
+                overflow-y: scroll;
+                background-color: #fff;
+                color: #000;
+                top: 4rem;
+                left: 0;
+                z-index: 1000;
+                transform: translateX(-80%);
+                
+                .alert__card{
+                    padding: 1.6rem;
+                
+                    .alert__message{
+                        font-size: 1.4rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        margin-bottom: .8rem;
+                        img{
+                            width: 1.5rem;
+                        }
+                    }
+    
+                    .alert__date{
+                        text-align: right;
+                        font-size: 1.2rem;
+                        color: #6E6E6E;
+                        // margin-bottom: .8rem;
+                    }
+                    .alert__course{
+                        font-size: 1.2rem;
+                        color: #6E6E6E;
+                        margin-bottom: .8rem;
+                    }
+                }
+
+                
+            }
+            p{
+                display: inline;
+            }
+            span{
+                color: #6E6E6E;
+            }
+        }
     }
+
+
+    
 
     .navbar__menu:last-child{
         margin-right: 2.4rem ;
