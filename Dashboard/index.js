@@ -190,8 +190,10 @@ for(let i=0;i<announcement.length;i++){
     `;
 
     const linebreak = document.createElement("hr")
-    announcement_container.appendChild(announcement_card)
-    announcement_container.appendChild(linebreak)
+    const referenceElementAnnoucement = document.querySelector('.announcement__button');
+
+    announcement_container.insertBefore(announcement_card, referenceElementAnnoucement);
+    announcement_container.insertBefore(linebreak, referenceElementAnnoucement);
 }
 
 
@@ -246,9 +248,13 @@ for(let i=0;i<alert.length;i++){
         </div>
     `;
 
+
+    const referenceElementAlert = document.querySelector('.alert__button');
+
+
     const linebreak = document.createElement("hr")
-    alert_container.appendChild(alert_card)
-    alert_container.appendChild(linebreak)
+    alert_container.insertBefore(alert_card,referenceElementAlert)
+    alert_container.insertBefore(linebreak,referenceElementAlert)
 }
 
 
